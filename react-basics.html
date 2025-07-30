@@ -8,16 +8,38 @@
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
-    <script type="text/babel">
-      const button = <button>Click</button>;
-      button.render;
 
+    <script type="text/babel">
+      // let sock = 10;
+      // let tShirt = 8;
+      // let shippingCost = 5;
+      // let productCost = sock + tShirt * 2;
+
+      // const div = (
+      //   <div>
+      //     <p>Product Cost: ${productCost}</p>
+      //     <p>Shipping Cost: ${shippingCost}</p>
+      //     <p>Total Cost: ${productCost + shippingCost}</p>
+      //     <button>Place your order</button>
+      //   </div>
+      // );
       const container = document.querySelector(".js-container");
-      ReactDOM.createRoot(container).render(
-        "Welcome to SuperSimpleDev React Course"
-      );
+      const root = ReactDOM.createRoot(container);
+
+      const date = dayjs().format("MMMM D dddd");
+
+      setInterval(() => {
+        const time = dayjs().format("HH:mm:ss");
+        const div = (
+          <div>
+            <p>Today is {date}</p>
+            <p>Current Time: {time}</p>
+          </div>
+        );
+        root.render(div);
+      }, 1000);
     </script>
   </body>
 </html>
